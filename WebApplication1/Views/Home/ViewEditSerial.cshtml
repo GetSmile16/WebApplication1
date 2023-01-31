@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebApplication1.Models.Serial>
+    @{
+    ViewBag.Title = "Все cериалы";
+    }
+    <a asp-action="CreateSerial">Добавить сериал</a>
+    <table class="table">
+        <tr><td>Имя</td><td>Картинка</td><td>Описание</td><td>Рейтинг</td><td>Жанр</td></tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.Name</td>
+        <td><img src="@item.Image" width="400"></td>
+        <td>@item.Description</td>
+        <td>@item.Rating</td>
+        <td>@item.Type</td>
+        <td>
+            <a asp-action="EditSerial" asp-controller="Home" asp-route-id="@item.Id">Изменить</a> |
+            <a asp-action="DeleteSerial" asp-controller="Home" asp-route-id="@item.Id">Удалить</a>
+        </td>
+    </tr>
+        }
+    </table>

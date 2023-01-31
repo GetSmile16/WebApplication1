@@ -1,0 +1,43 @@
+﻿@model WebApplication1.Models.Serial
+@{
+    ViewBag.Title = "Добавление сериала";
+}
+<form asp-antiforgery="true" asp-action="CreateSerial" asp-controller="home" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Имя</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label">Превью</label>
+        <input type="file" accept="image/*" name="image1" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Описание</label>
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Rating" class="control-label">Рейтинг</label>
+        <input type="number" asp-for="Rating" class="form-control" />
+        <span asp-validation-for="Rating"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type" class="control-label">Жанр</label>
+        <select asp-for="Type">
+            <option value="">Выберите жанр</option>
+            <option>Ужасы</option>
+            <option>Комедия</option>
+            <option>Триллер</option>
+            <option>Боевик</option>
+            <option>Драмма</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

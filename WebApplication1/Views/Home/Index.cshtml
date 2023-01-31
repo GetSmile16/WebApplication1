@@ -1,0 +1,31 @@
+﻿На данном сайте вы узнаете о различных фильмах и сериалах, а также увидите Топ-5 Фильмов и сериалов.
+
+<table class="table">
+    <th>Топ 5 фильмов</th>
+    <tr><td>Имя</td><td>Картинка</td><td>Описание</td><td>Рейтинг</td><td>Жанр</td></tr>
+    @foreach (var item in Model.films)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td><img src="@item.Image" width="400"></td>
+            <td>@item.Description</td>
+            <td>@item.Rating</td>
+            <td>@item.Type</td>
+        </tr>
+    }
+</table>
+<br/>
+<table class="table">
+    <th>Топ 5 сериалов</th>
+    <tr><td>Имя</td><td>Картинка</td><td>Описание</td><td>Рейтинг</td><td>Жанр</td></tr>
+    @foreach (var item in Model.serials)
+    {
+<tr>
+    <td>@item.Name</td>
+    <td><img src="@item.Image" width="400"></td>
+    <td>@item.Description</td>
+    <td>@item.Rating</td>
+    <td>@item.Type</td>
+</tr>
+    }
+</table>

@@ -1,0 +1,31 @@
+﻿@model WebApplication1.Models.UserView<Serial>
+@{
+    ViewBag.Title = "Все сериалы";
+}
+
+<form method="get">
+    <div class="form-inline form-group">
+        <label class="control-label">Имя: </label>
+        <input name="name" class="form-control" />
+
+        <label class="control-label">Жанр: </label>
+        <select name="type" asp-items="Model.Types" class="form-control"></select>
+
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+
+<a asp-action="ViewEditSerial">Изменить</a>
+<table class="table">
+    <tr><td><a asp-action="ViewSerials" asp-route-sortOrder="@ViewBag.NameSort">Имя</a></td><td>Картинка</td><td>Описание</td><td><a asp-action="ViewSerials" asp-route-sortOrder="@ViewBag.RatingSort">Рейтинг</a></td><td>Жанр</td></tr>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td><img src="@item.Image" width="400"></td>
+            <td>@item.Description</td>
+            <td>@item.Rating</td>
+            <td>@item.Type</td>
+        </tr>
+    }
+</table>
